@@ -1,7 +1,5 @@
+import Redux from 'npm:redux';
 import wordsList from './words-list';
+import currentWord from './current-word';
 
-export default function(state, action) {
-  return {
-    wordsList: wordsList(state, action),
-  };
-}
+export default Redux.combineReducers({wordsList, currentWord});
