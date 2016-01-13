@@ -17,7 +17,7 @@ test('it responds to CHOOSE_WORD', function(assert) {
 
 test('it responds to GUESS', function(assert) {
   const state = '___';
-  const action = {type: 'GUESS', letter: 'f', currentWord: 'foo'};
+  const action = {type: 'CORRECT_GUESS', letter: 'f', currentWord: 'foo'};
 
   Object.freeze(state);
   Object.freeze(action);

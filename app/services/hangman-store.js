@@ -1,18 +1,16 @@
 import Ember from 'ember';
-import Redux from 'npm:redux';
-import hangmanReducer from '../reducers/hangman';
+import store from '../stores/hangman';
 import dictionary from '../utils/dictionary';
 import _ from 'lodash';
 
 const {set} = Ember;
-const {createStore} = Redux;
 
 export default Ember.Service.extend({
   state: {},
   init() {
     this._super(...arguments);
 
-    set(this, 'store', createStore(hangmanReducer));
+    set(this, 'store', store);
 
     this.subscribeState();
     this.addWords();
@@ -28,7 +26,6 @@ export default Ember.Service.extend({
     const store = this.get('store');
 
     store.subscribe(() => {
-      console.log('Store Change', store.getState());
       this.set('state', store.getState());
     });
   },
@@ -40,8 +37,6 @@ export default Ember.Service.extend({
   },
 
   sendAction(type, data) {
-    console.log('ACTION:', type, data);
-
     this.store.dispatch({
       ...data,
       type,

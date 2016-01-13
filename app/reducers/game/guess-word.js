@@ -5,7 +5,7 @@ export default function(state = '', action = {}) {
     case 'CHOOSE_WORD':
       return action.word.split('')
         .map(() => {return '_';}).join('');
-    case 'GUESS':
+    case 'CORRECT_GUESS':
       return state.split('').map((letter, index) => {
         if (currentWord[index] === action.letter) {
           return currentWord[index];

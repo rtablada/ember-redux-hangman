@@ -6,12 +6,8 @@ export default function(state = [], action = {}) {
   switch (action.type) {
     case 'CHOOSE_WORD':
       return [];
-    case 'GUESS':
-      if (currentGuessWord === pastGuessWord) {
-        return _.uniq([...state, action.letter]);
-      }
-
-      return state;
+    case 'INCORRECT_GUESS':
+      return _.uniq([...state, action.letter]);
     default:
       return state;
   }

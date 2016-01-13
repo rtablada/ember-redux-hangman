@@ -15,9 +15,22 @@ test('it responds to CHOOSE_WORD', function(assert) {
   assert.deepEqual(result, {currentWord: 'Foo', guessWord: '___', guessesLeft: 6, hasWon: false, hasLost: false, incorrectGuesses: []});
 });
 
-test('it responds to correct GUESS', function(assert) {
-  const state = {currentWord: 'foo', guessWord: '___', guessesLeft: 6};
-  const action = {type: 'GUESS', letter: 'f'};
+test('it responds to CORRECT_GUESS', function(assert) {
+  const state = {
+    currentWord: 'foo',
+    guessWord: '___',
+    guessesLeft: 6,
+    hasWon: false,
+    hasLost: false,
+    incorrectGuesses: [],
+  };
+
+  const action = {
+    type: 'CORRECT_GUESS',
+    letter: 'f',
+    currentWord: 'foo',
+    guessesLeft: 6,
+  };
 
   Object.freeze(state);
   Object.freeze(action);
@@ -28,8 +41,21 @@ test('it responds to correct GUESS', function(assert) {
 });
 
 test('it responds to an incorrect GUESS', function(assert) {
-  const state = {currentWord: 'foo', guessWord: '___', guessesLeft: 6};
-  const action = {type: 'GUESS', letter: 'a'};
+  const state = {
+    currentWord: 'foo',
+    guessWord: '___',
+    guessesLeft: 6,
+    hasWon: false,
+    hasLost: false,
+    incorrectGuesses: [],
+  };
+
+  const action = {
+    type: 'INCORRECT_GUESS',
+    letter: 'a',
+    guessesLeft: 6,
+    currentWord: 'foo',
+  };
 
   Object.freeze(state);
   Object.freeze(action);
@@ -39,9 +65,22 @@ test('it responds to an incorrect GUESS', function(assert) {
   assert.deepEqual(result, {currentWord: 'foo', guessWord: '___', guessesLeft: 5, hasWon: false, hasLost: false, incorrectGuesses: ['a']});
 });
 
-test('it responds to correct GUESS that wins the game', function(assert) {
-  const state = {currentWord: 'foo', guessWord: '_oo', guessesLeft: 6};
-  const action = {type: 'GUESS', letter: 'f'};
+test('it responds to CORRECT_GUESS that wins the game', function(assert) {
+  const state = {
+    currentWord: 'foo',
+    guessWord: '_oo',
+    guessesLeft: 6,
+    hasWon: false,
+    hasLost: false,
+    incorrectGuesses: [],
+  };
+
+  const action = {
+    type: 'CORRECT_GUESS',
+    letter: 'f',
+    currentWord: 'foo',
+    guessesLeft: 6,
+  };
 
   Object.freeze(state);
   Object.freeze(action);

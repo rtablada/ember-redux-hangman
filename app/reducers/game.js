@@ -7,11 +7,11 @@ import incorrectGuessesReducer from './game/incorrect-guesses';
 
 export default function(state = {}, action = {}) {
   const currentWord = currentWordReducer(state.currentWord, action);
-  const guessWord = guessWordReducer(state.guessWord, {...action, currentWord});
-  const guessesLeft = guessesLeftReducer(state.guessesLeft, {...action, pastGuessWord: state.guessWord, currentGuessWord: guessWord});
-  const incorrectGuesses = incorrectGuessesReducer(state.incorrectGuesses, {...action, pastGuessWord: state.guessWord, currentGuessWord: guessWord});
+  const guessWord = guessWordReducer(state.guessWord, action);
+  const guessesLeft = guessesLeftReducer(state.guessesLeft, action);
+  const incorrectGuesses = incorrectGuessesReducer(state.incorrectGuesses, action);
+  const hasLost = hasLostReducer(state.hasLost, action);
   const hasWon = hasWonReducer(state.hasWon, {...action, currentGuessWord: guessWord});
-  const hasLost = hasLostReducer(state.hasLost, {...action, guessesLeft});
 
   return {
     ...state,

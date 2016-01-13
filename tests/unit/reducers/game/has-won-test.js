@@ -15,9 +15,9 @@ test('it responds to CHOOSE_WORD', function(assert) {
   assert.deepEqual(result, false);
 });
 
-test('it responds to GUESS where game not ended', function(assert) {
+test('it responds to CORRECT_GUESS where game not ended', function(assert) {
   const state = false;
-  const action = {type: 'GUESS', letter: 'f', currentGuessWord: 'f__'};
+  const action = {type: 'CORRECT_GUESS', letter: 'f', currentGuessWord: 'f__'};
 
   Object.freeze(state);
   Object.freeze(action);
@@ -27,9 +27,9 @@ test('it responds to GUESS where game not ended', function(assert) {
   assert.deepEqual(result, false);
 });
 
-test('it responds to GUESS where has ended', function(assert) {
+test('it responds to CORRECT_GUESS where has ended', function(assert) {
   const state = false;
-  const action = {type: 'GUESS', letter: 'f', currentGuessWord: 'foo'};
+  const action = {type: 'CORRECT_GUESS', letter: 'f', currentGuessWord: 'foo'};
 
   Object.freeze(state);
   Object.freeze(action);

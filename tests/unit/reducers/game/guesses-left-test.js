@@ -17,7 +17,7 @@ test('it responds to CHOOSE_WORD', function(assert) {
 
 test('it responds to correct GUESS', function(assert) {
   const state = 6;
-  const action = {type: 'GUESS', letter: 'f', pastGuessWord: '___', currentGuessWord: 'f__'};
+  const action = {type: 'CORRECT_GUESS', letter: 'f'};
 
   Object.freeze(state);
   Object.freeze(action);
@@ -29,7 +29,7 @@ test('it responds to correct GUESS', function(assert) {
 
 test('it responds to incorrect GUESS', function(assert) {
   const state = 6;
-  const action = {type: 'GUESS', letter: 'f', pastGuessWord: '___', currentGuessWord: '___'};
+  const action = {type: 'INCORRECT_GUESS', letter: 'f'};
 
   Object.freeze(state);
   Object.freeze(action);

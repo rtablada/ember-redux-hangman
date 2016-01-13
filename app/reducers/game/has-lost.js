@@ -4,7 +4,7 @@ export default function(state = false, action = {}) {
   switch (action.type) {
     case 'CHOOSE_WORD':
       return false;
-    case 'GUESS':
+    case 'INCORRECT_GUESS':
       return !guessesLeft;
     default:
       return state;
