@@ -8,5 +8,6 @@
   <div class="hangman hangman--guesses-left-{{hangman.state.game.guessesLeft}}"></div>
 
   {{input value=guessLetter}}
-  <button onclick={{route-action 'guess' guessLetter}}>Guess</button>
+
+  <button disabled={{not hangman.state.game.guessesLeft}} onclick={{route-action 'guess' guessLetter}}>Guess</button>
 {{/with-service}}
