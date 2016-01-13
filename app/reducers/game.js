@@ -1,5 +1,5 @@
-import currentWordReducer from './current-word';
-import guessWordReducer from './guess-word';
+import currentWordReducer from './game/current-word';
+import guessWordReducer from './game/guess-word';
 
 export default function(state = {}, action = {}) {
   let currentWord = currentWordReducer(state.currentWord, action);
