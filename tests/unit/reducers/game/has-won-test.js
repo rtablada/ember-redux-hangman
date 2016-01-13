@@ -17,7 +17,7 @@ test('it responds to CHOOSE_WORD', function(assert) {
 
 test('it responds to COMPUTE_WIN where game not ended', function(assert) {
   const state = false;
-  const action = {type: 'COMPUTE_WIN', currentGuessWord: 'f__'};
+  const action = {type: 'COMPUTE_WIN', guessWord: 'f__'};
 
   Object.freeze(state);
   Object.freeze(action);
@@ -29,7 +29,7 @@ test('it responds to COMPUTE_WIN where game not ended', function(assert) {
 
 test('it responds to COMPUTE_WIN where has ended', function(assert) {
   const state = false;
-  const action = {type: 'COMPUTE_WIN', currentGuessWord: 'foo'};
+  const action = {type: 'COMPUTE_WIN', guessWord: 'foo'};
 
   Object.freeze(state);
   Object.freeze(action);

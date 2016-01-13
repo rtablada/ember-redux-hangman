@@ -1,11 +1,11 @@
 export default function(state = false, action = {}) {
-  const {currentGuessWord} = action;
+  const {guessWord} = action;
 
   switch (action.type) {
     case 'CHOOSE_WORD':
       return false;
     case 'COMPUTE_WIN':
-      return currentGuessWord.indexOf('_') === -1;
+      return guessWord.indexOf('_') === -1;
     default:
       return state;
   }
