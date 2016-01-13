@@ -1,5 +1,5 @@
 import Redux from 'npm:redux';
 import wordsList from './words-list';
-import currentWord from './current-word';
+import game from './game';
 
-export default Redux.combineReducers({wordsList, currentWord});
+export default Redux.combineReducers({wordsList, game});

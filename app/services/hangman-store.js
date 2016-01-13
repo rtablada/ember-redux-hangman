@@ -27,16 +27,17 @@ export default Ember.Service.extend({
     let store = this.get('store');
 
     store.subscribe(() => {
+      console.log('Store Change', store.getState());
       this.set('state', store.getState());
     });
   },
 
   randomWord() {
-    const index = _.random(this.get('state.wordList.length') - 1);
+    const index = _.random(0, this.get('state.wordList.length') - 1);
 
     this.store.dispatch({
       type: 'CHOOSE_WORD',
-      word: this.get('state.wordList')[index],
+      word: this.get('state.wordsList')[index],
     });
   },
 

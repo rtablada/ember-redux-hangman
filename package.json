@@ -41,6 +41,7 @@
     "ember-getowner-polyfill": "1.0.0",
     "ember-lodash": "0.0.6",
     "ember-resolver": "^2.0.3",
+    "ember-route-action-helper": "0.2.0",
     "ember-with-service": "1.1.0",
     "redux": "3.0.5",
     "redux-logger": "2.3.2",
