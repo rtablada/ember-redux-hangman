@@ -1,18 +1,21 @@
 function guessAction(store, {letter}) {
   const state = store.getState();
+  const currentStats = {
+    letter,
+    currentWord: state.game.currentWord,
+    guessesLeft: state.game.guessesLeft,
+  }
 
   if (state.game.currentWord.indexOf(letter[0]) > -1) {
     return {
       type: 'CORRECT_GUESS',
-      letter,
-      currentWord: state.game.currentWord,
-      guessesLeft: state.game.guessesLeft,
+      ...currentStats,
     };
   }
 
   return {
     type: 'INCORRECT_GUESS',
-    letter,
+    ...currentStats,
   };
 }
 

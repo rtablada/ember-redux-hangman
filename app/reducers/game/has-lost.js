@@ -5,7 +5,8 @@ export default function(state = false, action = {}) {
     case 'CHOOSE_WORD':
       return false;
     case 'INCORRECT_GUESS':
-      return !guessesLeft;
+      // Accounts for guessesleft being 1...
+      return guessesLeft === 1;
     default:
       return state;
   }
