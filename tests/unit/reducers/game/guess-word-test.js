@@ -1,7 +1,7 @@
-import reducer from '../../../reducers/guess-word';
+import reducer from '../../../../reducers/game/guess-word';
 import { module, test } from 'qunit';
 
-module('Unit | Reducer | reducers/guess-word');
+module('Unit | Reducer | reducers/game/guess-word');
 
 test('it responds to CHOOSE_WORD', function(assert) {
   const state = null;

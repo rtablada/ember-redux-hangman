@@ -1,7 +1,7 @@
-import reducer from '../../../reducers/current-word';
+import reducer from '../../../../reducers/game/current-word';
 import { module, test } from 'qunit';
 
-module('Unit | Reducer | reducers/current-word');
+module('Unit | Reducer | reducers/game/current-word');
 
 test('it responds to CHOOSE_WORD', function(assert) {
   const state = null;
