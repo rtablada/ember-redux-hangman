@@ -4,6 +4,7 @@
   <button onclick={{route-action 'startGame'}}>Start New Game</button>
 
   <h2>Word: <span class="word">{{hangman.state.game.guessWord}}</span></h2>
+  <h2>Incorrect Guesses: <span class="word">{{#each hangman.state.game.incorrectGuesses as |guess|}}{{guess}}{{/each}}</span></h2>
 
   {{#if hangman.state.game.hasWon}}
     <h2>You Win!</h2>
