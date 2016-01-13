@@ -25,8 +25,10 @@ export default Ember.Service.extend({
   },
 
   subscribeState() {
-    this.store.subscribe(() => {
-      console.log('Store Change', this.store.getState());
+    const store = this.get('store');
+
+    store.subscribe(() => {
+      console.log('Store Change', store.getState());
       this.set('state', store.getState());
     });
   },
