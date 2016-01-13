@@ -8,20 +8,25 @@ function guessActionType(store, {letter}) {
   return 'INCORRECT_GUESS';
 }
 
+function sendGuessAction(store, next, action) {
+  const type = guessActionType(store, action);
+
+  const state = store.getState();
+  const currentStats = {
+    letter: action.letter,
+    currentWord: state.game.currentWord,
+    guessesLeft: state.game.guessesLeft,
+  };
+
+  next({type, ...currentStats});
+}
+
 // This middleware takes a guess and checks if it is valid or invalid
 export default store => next => action => {
   switch (action.type) {
     case 'GUESS':
-      const type = guessActionType(store, action);
+      sendGuessAction(store, next, action);
 
-      const state = store.getState();
-      const currentStats = {
-        letter: action.letter,
-        currentWord: state.game.currentWord,
-        guessesLeft: state.game.guessesLeft,
-      };
-
-      next({type, ...currentStats});
       return next({type: 'COMPUTE_WIN', guessWord: store.getState().game.guessWord});
     default:
       return next(action);

@@ -87,5 +87,5 @@ test('it responds to CORRECT_GUESS that wins the game', function(assert) {
 
   const result = reducer(state, action);
 
-  assert.deepEqual(result, {currentWord: 'foo', guessWord: 'foo', guessesLeft: 6, hasWon: true, hasLost: false, incorrectGuesses: []});
+  assert.deepEqual(result, {currentWord: 'foo', guessWord: 'foo', guessesLeft: 6, hasWon: false, hasLost: false, incorrectGuesses: []});
 });

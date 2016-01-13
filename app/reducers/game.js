@@ -1,25 +1,18 @@
-import currentWordReducer from './game/current-word';
-import guessWordReducer from './game/guess-word';
-import guessesLeftReducer from './game/guesses-left';
-import hasWonReducer from './game/has-won';
-import hasLostReducer from './game/has-lost';
-import incorrectGuessesReducer from './game/incorrect-guesses';
+import Redux from 'npm:redux';
+import currentWord from './game/current-word';
+import guessWord from './game/guess-word';
+import guessesLeft from './game/guesses-left';
+import hasWon from './game/has-won';
+import hasLost from './game/has-lost';
+import incorrectGuesses from './game/incorrect-guesses';
 
-export default function(state = {}, action = {}) {
-  const currentWord = currentWordReducer(state.currentWord, action);
-  const guessWord = guessWordReducer(state.guessWord, action);
-  const guessesLeft = guessesLeftReducer(state.guessesLeft, action);
-  const incorrectGuesses = incorrectGuessesReducer(state.incorrectGuesses, action);
-  const hasLost = hasLostReducer(state.hasLost, action);
-  const hasWon = hasWonReducer(state.hasWon, {...action, currentGuessWord: guessWord});
+const { combineReducers } = Redux;
 
-  return {
-    ...state,
-    currentWord,
-    guessWord,
-    guessesLeft,
-    hasWon,
-    hasLost,
-    incorrectGuesses,
-  };
-};
+export default combineReducers({
+  currentWord,
+  guessWord,
+  guessesLeft,
+  hasWon,
+  hasLost,
+  incorrectGuesses,
+});

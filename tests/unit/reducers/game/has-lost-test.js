@@ -27,21 +27,9 @@ test('it responds to INCORRECT_GUESS where game not ended', function(assert) {
   assert.deepEqual(result, false);
 });
 
-test('it responds to INCORRECT_GUESS where has ended in a win', function(assert) {
-  const state = false;
-  const action = {type: 'INCORRECT_GUESS', letter: 'f', guessesLeft: 6};
-
-  Object.freeze(state);
-  Object.freeze(action);
-
-  const result = reducer(state, action);
-
-  assert.deepEqual(result, false);
-});
-
 test('it responds to INCORRECT_GUESS where has ended in a loss', function(assert) {
   const state = false;
-  const action = {type: 'INCORRECT_GUESS', letter: 'f', guessesLeft: 0};
+  const action = {type: 'INCORRECT_GUESS', letter: 'f', guessesLeft: 1};
 
   Object.freeze(state);
   Object.freeze(action);
