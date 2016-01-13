@@ -16,7 +16,7 @@ test('it responds to CHOOSE_WORD', function(assert) {
 });
 
 test('it responds to GUESS where game not ended', function(assert) {
-  const state = '___';
+  const state = false;
   const action = {type: 'GUESS', letter: 'f', currentGuessWord: 'f__'};
 
   Object.freeze(state);
@@ -28,7 +28,7 @@ test('it responds to GUESS where game not ended', function(assert) {
 });
 
 test('it responds to GUESS where has ended', function(assert) {
-  const state = '___';
+  const state = false;
   const action = {type: 'GUESS', letter: 'f', currentGuessWord: 'foo'};
 
   Object.freeze(state);
