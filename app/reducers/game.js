@@ -5,11 +5,11 @@ import hasWonReducer from './game/has-won';
 import hasLostReducer from './game/has-lost';
 
 export default function(state = {}, action = {}) {
-  let currentWord = currentWordReducer(state.currentWord, action);
-  let guessWord = guessWordReducer(state.guessWord, {...action, currentWord});
-  let guessesLeft = guessesLeftReducer(state.guessesLeft, {...action, pastGuessWord: state.guessWord, currentGuessWord: guessWord});
-  let hasWon = hasWonReducer(state.hasWon, {...action, currentGuessWord: guessWord});
-  let hasLost = hasLostReducer(state.hasLost, {...action, guessesLeft});
+  const currentWord = currentWordReducer(state.currentWord, action);
+  const guessWord = guessWordReducer(state.guessWord, {...action, currentWord});
+  const guessesLeft = guessesLeftReducer(state.guessesLeft, {...action, pastGuessWord: state.guessWord, currentGuessWord: guessWord});
+  const hasWon = hasWonReducer(state.hasWon, {...action, currentGuessWord: guessWord});
+  const hasLost = hasLostReducer(state.hasLost, {...action, guessesLeft});
 
   return {
     ...state,

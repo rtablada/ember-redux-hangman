@@ -1,5 +1,5 @@
 export default function(state = false, action = {}) {
-  let {currentGuessWord} = action;
+  const {currentGuessWord} = action;
 
   switch (action.type) {
     case 'CHOOSE_WORD':

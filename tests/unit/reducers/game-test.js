@@ -27,7 +27,7 @@ test('it responds to correct GUESS', function(assert) {
   assert.deepEqual(result, {currentWord: 'foo', guessWord: 'f__', guessesLeft: 6, hasWon: false, hasLost: false});
 });
 
-test('it responds to correct GUESS', function(assert) {
+test('it responds to an incorrect GUESS', function(assert) {
   const state = {currentWord: 'foo', guessWord: '___', guessesLeft: 6};
   const action = {type: 'GUESS', letter: 'a'};
 
@@ -37,4 +37,16 @@ test('it responds to correct GUESS', function(assert) {
   const result = reducer(state, action);
 
   assert.deepEqual(result, {currentWord: 'foo', guessWord: '___', guessesLeft: 5, hasWon: false, hasLost: false});
+});
+
+test('it responds to correct GUESS that wins the game', function(assert) {
+  const state = {currentWord: 'foo', guessWord: '_oo', guessesLeft: 6};
+  const action = {type: 'GUESS', letter: 'f'};
+
+  Object.freeze(state);
+  Object.freeze(action);
+
+  const result = reducer(state, action);
+
+  assert.deepEqual(result, {currentWord: 'foo', guessWord: 'foo', guessesLeft: 6, hasWon: true, hasLost: false});
 });

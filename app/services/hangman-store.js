@@ -4,8 +4,8 @@ import hangmanReducer from '../reducers/hangman';
 import dictionary from '../utils/dictionary';
 import _ from 'lodash';
 
-let {set} = Ember;
-let {createStore} = Redux;
+const {set} = Ember;
+const {createStore} = Redux;
 
 export default Ember.Service.extend({
   state: {},
@@ -25,10 +25,8 @@ export default Ember.Service.extend({
   },
 
   subscribeState() {
-    let store = this.get('store');
-
-    store.subscribe(() => {
-      console.log('Store Change', store.getState());
+    this.store.subscribe(() => {
+      console.log('Store Change', this.store.getState());
       this.set('state', store.getState());
     });
   },
