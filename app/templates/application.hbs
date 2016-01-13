@@ -5,12 +5,12 @@
 
   <h2>Word: {{hangman.state.game.guessWord}}</h2>
 
-  {{#if hangman.state.hasWon}}
+  {{#if hangman.state.game.hasWon}}
     <h2>You Win!</h2>
   {{/if}}
 
-  {{#if hangman.state.hasLost}}
-    <h2>You Lose!</h2>
+  {{#if hangman.state.game.hasLost}}
+    <h2>You Lose! The word was {{hangman.state.game.currentWord}}</h2>
   {{/if}}
 
   <div class="hangman hangman--guesses-left-{{hangman.state.game.guessesLeft}}"></div>

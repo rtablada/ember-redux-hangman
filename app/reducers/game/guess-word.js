@@ -6,7 +6,6 @@ export default function(state = '', action = {}) {
       return action.word.split('')
         .map(() => {return '_';}).join('');
     case 'GUESS':
-      console.log(action);
       return state.split('').map((letter, index) => {
         if (currentWord[index] === action.letter) {
           return currentWord[index];
