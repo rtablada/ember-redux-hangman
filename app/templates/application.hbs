@@ -5,9 +5,17 @@
 
   <h2>Word: {{hangman.state.game.guessWord}}</h2>
 
+  {{#if hangman.state.hasWon}}
+    <h2>You Win!</h2>
+  {{/if}}
+
+  {{#if hangman.state.hasLost}}
+    <h2>You Lose!</h2>
+  {{/if}}
+
   <div class="hangman hangman--guesses-left-{{hangman.state.game.guessesLeft}}"></div>
 
   {{input value=guessLetter}}
 
-  <button disabled={{not hangman.state.game.guessesLeft}} onclick={{route-action 'guess' guessLetter}}>Guess</button>
+  <button disabled={{or hangman.state.game.hasWon hangman.state.game.hasLost}} onclick={{route-action 'guess' guessLetter}}>Guess</button>
 {{/with-service}}
