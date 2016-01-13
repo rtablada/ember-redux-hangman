@@ -7,5 +7,9 @@ export default Ember.Route.extend({
     startGame() {
       this.get('hangman').randomWord();
     },
+
+    guess(input = '') {
+      this.get('hangman').sendAction('GUESS', {letter: input[0]});
+    },
   },
 });

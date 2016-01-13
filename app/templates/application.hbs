@@ -1,4 +1,10 @@
 <h2 id="title">Welcome to Hangman</h2>
 
 {{#with-service 'hangman-store' as |hangman|}}
+  <button onclick={{route-action 'startGame'}}>Start New Game</button>
+
+  <h2>Word: {{hangman.state.game.guessWord}}</h2>
+
+  {{input value=guessLetter}}
+  <button onclick={{route-action 'guess' guessLetter}}>Guess</button>
 {{/with-service}}
