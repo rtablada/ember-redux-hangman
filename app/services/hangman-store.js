@@ -33,7 +33,7 @@ export default Ember.Service.extend({
   },
 
   randomWord() {
-    const index = _.random(0, this.get('state.wordList.length') - 1);
+    const index = _.random(this.get('state.wordsList.length') - 1);
 
     this.store.dispatch({
       type: 'CHOOSE_WORD',
