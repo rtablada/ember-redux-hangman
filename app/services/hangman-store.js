@@ -8,22 +8,23 @@ let {set} = Ember;
 let {createStore} = Redux;
 
 export default Ember.Service.extend({
+  state: {},
   init() {
     this._super(...arguments);
 
     set(this, 'store', createStore(hangmanReducer));
 
-    this.pushState();
+    this.subscribeState();
     this.addWords();
   },
 
   addWords() {
     dictionary.forEach((word) => {
-      this.get('store').dispatch({type: 'ADD_WORD', word});
+      this.sendAction('ADD_WORD', {word});
     });
   },
 
-  pushState() {
+  subscribeState() {
     let store = this.get('store');
 
     store.subscribe(() => {
@@ -35,13 +36,12 @@ export default Ember.Service.extend({
   randomWord() {
     const index = _.random(this.get('state.wordsList.length') - 1);
 
-    this.store.dispatch({
-      type: 'CHOOSE_WORD',
-      word: this.get('state.wordsList')[index],
-    });
+    this.sendAction('CHOOSE_WORD', { word: this.get('state.wordsList')[index]});
   },
 
   sendAction(type, data) {
+    console.log('ACTION:', type, data);
+
     this.store.dispatch({
       ...data,
       type,
