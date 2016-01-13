@@ -4,7 +4,8 @@
   <button onclick={{route-action 'startGame'}}>Start New Game</button>
 
   <h2>Word: {{hangman.state.game.guessWord}}</h2>
-  <h2>Guesses Left: {{hangman.state.game.guessesLeft}}</h2>
+
+  <div class="hangman hangman--guesses-left-{{hangman.state.game.guessesLeft}}"></div>
 
   {{input value=guessLetter}}
   <button onclick={{route-action 'guess' guessLetter}}>Guess</button>

@@ -1,0 +1,32 @@
+.hangman {
+  content: "";
+  height: 375px;
+  width: 195px;
+  background: url('/hangman.png');
+  background-position: top right;
+  background-position-x: calc(195px * 1);
+}
+
+.hangman--guesses-left-1 {
+  background-position-x: calc(195px * 2);
+}
+
+.hangman--guesses-left-2 {
+  background-position-x: calc(195px * 3);
+}
+
+.hangman--guesses-left-3 {
+  background-position-x: calc(195px * 4);
+}
+
+.hangman--guesses-left-4 {
+  background-position-x: calc(195px * 5);
+}
+
+.hangman--guesses-left-5 {
+  background-position-x: calc(195px * 6);
+}
+
+.hangman--guesses-left-6 {
+  background: none;
+}
