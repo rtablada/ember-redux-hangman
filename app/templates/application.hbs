@@ -3,7 +3,7 @@
 {{#with-service 'hangman-store' as |hangman|}}
   <button onclick={{route-action 'startGame'}}>Start New Game</button>
 
-  <h2>Word: {{hangman.state.game.guessWord}}</h2>
+  <h2>Word: <span class="word">{{hangman.state.game.guessWord}}</span></h2>
 
   {{#if hangman.state.game.hasWon}}
     <h2>You Win!</h2>
