@@ -4,7 +4,7 @@ export default function(state = false, action = {}) {
   switch (action.type) {
     case 'CHOOSE_WORD':
       return false;
-    case 'CORRECT_GUESS':
+    case 'COMPUTE_WIN':
       return currentGuessWord.indexOf('_') === -1;
     default:
       return state;
