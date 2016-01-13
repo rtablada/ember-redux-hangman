@@ -12,7 +12,7 @@ test('it responds to CHOOSE_WORD', function(assert) {
 
   const result = reducer(state, action);
 
-  assert.deepEqual(result, {currentWord: 'Foo', guessWord: '___', guessesLeft: 6});
+  assert.deepEqual(result, {currentWord: 'Foo', guessWord: '___', guessesLeft: 6, hasWon: false});
 });
 
 test('it responds to correct GUESS', function(assert) {
@@ -24,7 +24,7 @@ test('it responds to correct GUESS', function(assert) {
 
   const result = reducer(state, action);
 
-  assert.deepEqual(result, {currentWord: 'foo', guessWord: 'f__', guessesLeft: 6});
+  assert.deepEqual(result, {currentWord: 'foo', guessWord: 'f__', guessesLeft: 6, hasWon: false});
 });
 
 test('it responds to correct GUESS', function(assert) {
@@ -36,5 +36,5 @@ test('it responds to correct GUESS', function(assert) {
 
   const result = reducer(state, action);
 
-  assert.deepEqual(result, {currentWord: 'foo', guessWord: '___', guessesLeft: 5});
+  assert.deepEqual(result, {currentWord: 'foo', guessWord: '___', guessesLeft: 5, hasWon: false});
 });
